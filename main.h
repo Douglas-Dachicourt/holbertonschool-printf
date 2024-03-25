@@ -1,10 +1,16 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#include <stdarg.h>
+#include <unistd.h>
+#include "print_functions.c"
+
 int _putchar(char c);
-void print_char(va_list *args);
-void print_str(va_list *args);
+int print_char(va_list args);
+int print_str(va_list args);
 int _printf(const char *format, ...);
+int (*_print_selected(char *flag))(va_list args);
+
 /**
  * struct struc_print - main struct
  * @op: choix de l'operateur op
@@ -14,7 +20,7 @@ int _printf(const char *format, ...);
 typedef struct struc_print
 {
 char *op;
-int (*func)(va_list *args);
+int (*func)(va_list args);
 } select;
 
 #endif

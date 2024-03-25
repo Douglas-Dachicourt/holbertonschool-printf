@@ -15,11 +15,11 @@ int _putchar(char c)
  * @args: The list of characters to print
  * Return: number of char printed (bytes)
  */
-int print_char(va_list *args)
+int print_char(va_list args)
 {
 	char ch;
 
-	ch = va_arg(*args, int);
+	ch = va_arg(args, int);
 
 	_putchar(ch);
 
@@ -30,12 +30,12 @@ int print_char(va_list *args)
  * @args: The list of strings to print
  * Return: number of char printed (bytes)
  */
-int print_str(va_list *args)
+int print_str(va_list args)
 {
 	int i, count = 0;
 	char *str;
 
-	str = va_arg(*args, char *);
+	str = va_arg(args, char *);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
