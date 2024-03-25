@@ -1,4 +1,5 @@
-#include <unistd.h>
+#include "main.h"
+
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -10,6 +11,8 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+
 /**
  * print_char - writes a character
  * @args: The list of characters to print
@@ -25,6 +28,8 @@ int print_char(va_list args)
 
 	return (1);
 }
+
+
 /**
  * print_str - writes a string
  * @args: The list of strings to print
@@ -32,7 +37,8 @@ int print_char(va_list args)
  */
 int print_str(va_list args)
 {
-	int i, count = 0;
+	int i = 0;
+	int count = 0;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -44,4 +50,5 @@ int print_str(va_list args)
 	}
 	return (count);
 }
+
 

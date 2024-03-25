@@ -1,7 +1,7 @@
 #include "main.h"
 
-
 int (*_print_selected(char *flag))(va_list args);
+
 
 /**
  * print_all - function that prints anything
@@ -11,33 +11,37 @@ int (*_print_selected(char *flag))(va_list args);
  */
 int _printf(const char *format, ...)
 {
-	int i;
-	int count = 0;
+	int i = 0;
+	int char_count = 0;
 
 	va_list args;
 	va_start(args, format);
 
-	if (format == NULL)
-		return (0);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+			return (-1);
 
 	while(format[i] != '\0')
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
+			char_count++;
 		}
-		if (format[i] == '%' && format[i + 1] == '%')
+		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			_putchar('%');
+			char_count++;
+			i++;
 		}
 		else
 		{
-			(*_print_selected(*format[i + 1]))(args);
+			(*_print_selected((char *)&format[i + 1])) (args);
+			i++;
 		}
 	i++;
 	}
 	va_end(args);
-	return (count);
+	return (char_count);
 }
 
 /**
@@ -57,10 +61,15 @@ int (*_print_selected(char *flag))(va_list args)
 
 	int i = 0;
 
+	if (*flag != 'c' || *flag != 's')
+	{
+		;
+	}
+
 	while (printer[i].op != NULL && printer[i].op[0] != '\0')
 	{
-		if (printer[i].op == flag)
-			return (printer[i].func(args));
+		if (printer[i].op[0] == *flag)
+			return (printer[i].func);
 
 	i++;
 	}
