@@ -7,6 +7,11 @@
 int _putchar(char c);
 int print_char(va_list args);
 int print_str(va_list args);
+int print_int(va_list args);
+int print_number(int n);
+int print_int(va_list args);
+int print_i(va_list args);
+
 int _printf(const char *format, ...);
 int (*_print_selected(char *flag))(va_list args);
 

@@ -34,7 +34,8 @@ int _printf(const char *format, ...)
 			char_count++;
 			i++;
 		}
-		else if (format[i] == '%' && (format[i + 1] != 'c' && format[i + 1] != 's'))
+		else if (format[i] == '%' && (format[i + 1] != 'c' && format[i + 1] != 's'
+				 && format[i + 1] != 'd' && format[i + 1] != 'i'))
 		{
 			_putchar('%');
 			_putchar(format[i + 1]);
@@ -63,6 +64,8 @@ int (*_print_selected(char *flag))(va_list args)
 	select printer[] = {
 		{"c", print_char},
 		{"s", print_str},
+		{"d", print_int},
+		{"i", print_int},
 		{NULL, NULL}
 	};
 

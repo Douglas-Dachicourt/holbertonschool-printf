@@ -38,7 +38,7 @@ int print_char(va_list args)
 int print_str(va_list args)
 {
 	int i = 0;
-	int count = 0;
+	int char_count = 0;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -46,7 +46,51 @@ int print_str(va_list args)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
-		count++;
+		char_count++;
 	}
-	return (count);
+	return (char_count);
+}
+
+/**
+ * print_number - function that prints an integer using a recursive function
+ * @n: The corresponding arguments of the list
+ * containing the integers to print
+ * Return: number of char printed (bytes)
+ */
+int print_number(int n)
+{
+
+	int char_count = 0;
+
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+
+	if (n == 0)
+		_putchar('0');
+
+	if (n / 10)
+		print_number(n / 10);
+
+	_putchar(n % 10 + '0');
+	char_count++;
+
+	return (char_count);
+}
+
+/**
+ * print_int - function that prints an integers
+ * @args: The corresponding arguments of the list
+ * containing the integers to print
+ * Return: number of char printed (bytes)
+ */
+int print_int(va_list args)
+{
+	unsigned int n = va_arg(args, int);
+
+	print_number(n);
+
+	return (0);
 }
