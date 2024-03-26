@@ -34,6 +34,13 @@ int _printf(const char *format, ...)
 			char_count++;
 			i++;
 		}
+		else if (format[i] == '%' && (format[i + 1] != 'c' && format[i + 1] != 's'))
+		{
+			_putchar('%');
+			_putchar(format[i + 1]);
+			char_count++;
+			i++;
+		}
 		else
 		{
 			(*_print_selected((char *)&format[i + 1])) (args);
@@ -60,12 +67,6 @@ int (*_print_selected(char *flag))(va_list args)
 	};
 
 	int i = 0;
-
-	if ((*flag != 'c') && (*flag != 's'))
-	{
-		_putchar('%');
-		_putchar(*flag);
-	}
 
 	while (printer[i].op != NULL && printer[i].op[0] != '\0')
 	{
