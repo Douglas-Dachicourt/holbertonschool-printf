@@ -1,6 +1,6 @@
 #include "main.h"
 
-int (*_print_selected(char *flag))(va_list args);
+int (*_print_selected(char *flag))(va_list *args);
 
 
 /**
@@ -34,8 +34,8 @@ int _printf(const char *format, ...)
 			char_count++;
 			i++;
 		}
-		else if (format[i] == '%' && (format[i + 1] != 'c' && format[i + 1] != 's'
-				 && format[i + 1] != 'd' && format[i + 1] != 'i'))
+		else if (format[i] == '%' && format[i + 1] != 'c' && format[i + 1] != 's'
+				 && format[i + 1] != 'd' && format[i + 1] != 'i')
 		{
 			_putchar('%');
 			_putchar(format[i + 1]);
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			char_count = char_count + (*_print_selected((char *)&format[i + 1])) (args);
+			char_count = char_count + (*_print_selected((char *)&format[i + 1])) (&args);
 			i++;
 		}
 	i++;
@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
  * @flag: pointer to the operator found after the flag %
  * Return: the number of char (bytes) printed
  */
-int (*_print_selected(char *flag))(va_list args)
+int (*_print_selected(char *flag))(va_list *args)
 {
 	select printer[] = {
 		{"c", print_char},
