@@ -66,13 +66,20 @@ int print_number(int n)
 	{
 		_putchar('-');
 		n = -n;
+		char_count = 1;
+		return (char_count);
 	}
-
 	if (n == 0)
+	{
 		_putchar('0');
-
+		char_count = 1;
+		return (char_count);
+	}
 	if (n / 10)
-		print_number(n / 10);
+	{
+
+		char_count += print_number(n / 10);
+	}
 
 	_putchar(n % 10 + '0');
 	char_count++;
@@ -88,9 +95,11 @@ int print_number(int n)
  */
 int print_int(va_list args)
 {
+	int char_count = 0;
+
 	unsigned int n = va_arg(args, int);
 
-	print_number(n);
+	char_count = print_number(n);
 
-	return (0);
+	return (char_count);
 }

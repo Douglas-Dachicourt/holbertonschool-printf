@@ -39,12 +39,12 @@ int _printf(const char *format, ...)
 		{
 			_putchar('%');
 			_putchar(format[i + 1]);
-			char_count++;
+			char_count += 2;
 			i++;
 		}
 		else
 		{
-			(*_print_selected((char *)&format[i + 1])) (args);
+			char_count = char_count + (*_print_selected((char *)&format[i + 1])) (args);
 			i++;
 		}
 	i++;
