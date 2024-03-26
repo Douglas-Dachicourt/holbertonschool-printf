@@ -1,0 +1,7 @@
+main.c
+*~
+.out
+TEST
+.tmp/
+Test_main.c
+Test*.c
