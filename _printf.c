@@ -4,7 +4,7 @@ int (*_print_selected(char *flag))(va_list args);
 
 
 /**
- * print_all - function that prints anything
+ * _printf - function that prints char , string , int ...
  * @format: pointer to the string of arguments of different types
  *
  * Return: the number of char (bytes) printed
@@ -15,12 +15,13 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 
 	va_list args;
+
 	va_start(args, format);
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-			return (-1);
+		return (-1);
 
-	while(format[i] != '\0')
+	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
 		{
@@ -47,8 +48,7 @@ int _printf(const char *format, ...)
 /**
  * _print_selected - function that selects the appropriate function
  * depending on the type of operator
- * @char: pointer to the operator found after the flag %
- *
+ * @flag: pointer to the operator found after the flag %
  * Return: the number of char (bytes) printed
  */
 int (*_print_selected(char *flag))(va_list args)
@@ -61,9 +61,10 @@ int (*_print_selected(char *flag))(va_list args)
 
 	int i = 0;
 
-	if (*flag != 'c' || *flag != 's')
+	if ((*flag != 'c') && (*flag != 's'))
 	{
-		;
+		_putchar('%');
+		_putchar(*flag);
 	}
 
 	while (printer[i].op != NULL && printer[i].op[0] != '\0')

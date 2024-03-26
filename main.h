@@ -12,9 +12,9 @@ int (*_print_selected(char *flag))(va_list args);
 
 /**
  * struct struc_print - main struct
- * @op: choix de l'operateur op
- * @func: fonction appelée pour définir le type d'op
- * Description: permet de séléctionner l'op en fct de l'arg
+ * @op: selector of conversion available (str, char, int ...)
+ * @func: function to be called depending on the selector
+ * Description: allows to call a function depending on the selector
  */
 typedef struct struc_print
 {
