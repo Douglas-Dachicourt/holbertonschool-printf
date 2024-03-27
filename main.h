@@ -1,5 +1,5 @@
 #ifndef __MAIN_H__
-#define __MAIN_H__ 
+#define __MAIN_H__
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
@@ -8,8 +8,7 @@ int _putchar(char c);
 int print_char(va_list *args);
 int print_str(va_list *args);
 int print_int(va_list *args);
-int print_number(int n);
-int print_int(va_list *args);
+int print_number(long int n);
 int print_i(va_list *args);
 
 int _printf(const char *format, ...);
