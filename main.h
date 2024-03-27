@@ -1,6 +1,5 @@
-#ifndef __MAIN_H__
-#define __MAIN_H__
-
+#ifndef __MAIN_H__ /*Main.h*/
+#define __MAIN_H__ 
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
@@ -28,4 +27,4 @@ char *op;
 int (*func)(va_list *args);
 } choose;
 
-#endif
+#endif /*Main.h*/
