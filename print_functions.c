@@ -70,13 +70,30 @@ int print_number(int n)
 
 	int char_count = 0;
 
+		if (n == INT_MIN)
+	{
+		_putchar('-');
+		_putchar('2');
+		_putchar('1');
+		_putchar('4');
+		_putchar('7');
+		_putchar('4');
+		_putchar('8');
+		_putchar('3');
+		_putchar('6');
+		_putchar('4');
+		_putchar('8');
+
+		return (11);
+	}
+
 	if (n < 0)
 	{
 		_putchar('-');
 		n = -n;
 		char_count = 1;
-		return (char_count);
 	}
+
 	if (n == 0)
 	{
 		_putchar('0');
@@ -105,7 +122,7 @@ int print_int(va_list *args)
 {
 	int char_count = 0;
 
-	unsigned int n = va_arg(*args, int);
+	unsigned int n = va_arg(*args, unsigned int);
 
 	char_count = print_number(n);
 

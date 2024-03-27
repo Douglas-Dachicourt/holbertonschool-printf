@@ -1,7 +1,5 @@
 main.c
 *~
-.out
-TEST
+a.out
+*.out
 .tmp/
-Test_main.c
-Test*.c

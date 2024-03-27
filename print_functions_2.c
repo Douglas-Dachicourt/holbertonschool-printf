@@ -11,7 +11,7 @@ int print_i(va_list *args)
 {
 	int char_count = 0;
 
-	unsigned int n = va_arg(*args, int);
+	unsigned int n = va_arg(*args, unsigned int);
 
 	char_count = print_number(n);
 
