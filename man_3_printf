@@ -1,0 +1,63 @@
+.TH PRINTF 3 "27 March 2024" "Version 1.0" "User Commands"
+
+.SH NAME
+printf, _print_selected \- Formatted value printing functions
+
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.B int printf(const char *format, ...);
+.br
+.B int (*_print_selected(char *flag))(va_list * args);
+
+.SH DESCRIPTION
+The
+.B printf
+function prints values according to the specified format string
+.I format
+and returns the number of characters printed.
+
+The
+.B _print_selected
+function selects the appropriate function for each type of operator specified in
+.I format
+and returns a pointer to that function.
+
+.SH PARAMETERS
+.IP "\fIformat\fP"
+Pointer to the format string containing the operators and arguments to print.
+.IP "\fIflag\fP"
+Pointer to the operator found after the % flag.
+
+.SH RETURN VALUE
+The
+.B printf
+function returns the number of characters (bytes) printed.
+
+The
+.B _print_selected
+function returns a pointer to the function for handling the specified operator.
+
+.SH SUPPORTED OPERATOR TYPES
+The following operators are supported by the
+.B printf
+function and can be used in the
+.I format
+string:
+.IP "%c"
+Character.
+.IP "%s"
+String.
+.IP "%d"
+Decimal integer.
+.IP "%i"
+Integer.
+
+.SH SEE ALSO
+.BR stdio (3)
+
+.SH AUTHOR
+Douglas Dachicourt, Cédric Tobie and Ibrahim Hassan Ali.
+
+.SH COPYRIGHT
+Copyright © 2024 Douglas Dachicourt, Cédric Tobie and Ibrahim Hassan Ali.
