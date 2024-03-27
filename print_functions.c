@@ -43,10 +43,18 @@ int print_str(va_list *args)
 
 	str = va_arg(*args, char *);
 
+	if (str == NULL)
+	{
+		_printf("(null)");
+		return (6);
+	}
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
+
 		char_count++;
+
 	}
 	return (char_count);
 }

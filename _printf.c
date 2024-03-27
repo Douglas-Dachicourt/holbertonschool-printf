@@ -1,7 +1,31 @@
 #include "main.h"
+/**
+ * _print_selected - function that selects the appropriate function
+ * depending on the type of operator
+ * @flag: pointer to the operator found after the flag %
+ * Return: the number of char (bytes) printed
+ */
+int (*_print_selected(char *flag))(va_list * args)
+{
+	choose printer[] = {
+		{"c", print_char},
+		{"s", print_str},
+		{"d", print_int},
+		{"i", print_int},
+		{NULL, NULL}
+	};
 
-int (*_print_selected(char *flag))(va_list *args);
+	int i = 0;
 
+	while (printer[i].op != NULL && printer[i].op[0] != '\0')
+	{
+		if (printer[i].op[0] == *flag)
+			return (printer[i].func);
+
+	i++;
+	}
+	return (0);
+}
 
 /**
  * _printf - function that prints char , string , int ...
@@ -44,39 +68,11 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			char_count = char_count + (*_print_selected((char *)&format[i + 1])) (&args);
+			char_count += (*_print_selected((char *)&format[i + 1]))(&args);
 			i++;
 		}
 	i++;
 	}
 	va_end(args);
 	return (char_count);
-}
-
-/**
- * _print_selected - function that selects the appropriate function
- * depending on the type of operator
- * @flag: pointer to the operator found after the flag %
- * Return: the number of char (bytes) printed
- */
-int (*_print_selected(char *flag))(va_list *args)
-{
-	choose printer[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"d", print_int},
-		{"i", print_int},
-		{NULL, NULL}
-	};
-
-	int i = 0;
-
-	while (printer[i].op != NULL && printer[i].op[0] != '\0')
-	{
-		if (printer[i].op[0] == *flag)
-			return (printer[i].func);
-
-	i++;
-	}
-	return (0);
 }
