@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
  */
 int (*_print_selected(char *flag))(va_list *args)
 {
-	select printer[] = {
+	choose printer[] = {
 		{"c", print_char},
 		{"s", print_str},
 		{"d", print_int},

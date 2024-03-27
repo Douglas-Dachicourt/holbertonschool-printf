@@ -25,6 +25,6 @@ typedef struct struc_print
 {
 char *op;
 int (*func)(va_list *args);
-} select;
+} choose;
 
 #endif
