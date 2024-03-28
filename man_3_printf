@@ -1,18 +1,18 @@
-.TH PRINTF 3 "27 March 2024" "Version 1.0" "User Commands"
+.TH _PRINTF 3 "28 March 2024" "Version 1.0" "User Commands"
 
 .SH NAME
-printf, _print_selected \- Formatted value printing functions
+_printf, _print_selected \- Formatted value printing functions
 
 .SH SYNOPSIS
-.B #include <stdio.h>
+.B #include \)"main.h\)"
 .PP
-.B int printf(const char *format, ...);
+.B int _printf(const char *format, ...);
 .br
 .B int (*_print_selected(char *flag))(va_list * args);
 
 .SH DESCRIPTION
 The
-.B printf
+.B _printf
 function prints values according to the specified format string
 .I format
 and returns the number of characters printed.
@@ -31,7 +31,7 @@ Pointer to the operator found after the % flag.
 
 .SH RETURN VALUE
 The
-.B printf
+.B _printf
 function returns the number of characters (bytes) printed.
 
 The
@@ -51,7 +51,21 @@ String.
 .IP "%d"
 Decimal integer.
 .IP "%i"
-Integer.
+Integer (can be decimal, hexadecimal or octal).
+
+.SH EXAMPLE OF USE
+#include \)"main.h\)"
+
+int main(void)
+{
+
+    _printf("Read the %s !\\n", "FM");
+
+    return (0);
+
+}
+
+Terminal output will be : Read the FM !
 
 .SH SEE ALSO
 .BR stdio (3)
