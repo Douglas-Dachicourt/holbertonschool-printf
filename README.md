@@ -28,7 +28,7 @@ This repository contains a header file and three source code files:
 
 - `print_functions_2.c`: This file exclusively contains the definition of the function to handle the `%i` format specifier.
 
-- `printf.c`: This file contains the main **_printf** function, which emulates the behavior of the *printf* function from the standard library. Additionally, it includes a function to ensure the correct function is called. 
+- `printf.c`: This file contains the main **_printf** function, which emulates the behavior of the *printf* function from the standard library. Additionally, it includes a function that select the right function to call depending on the specifier. 
 
 <br>
 
@@ -48,7 +48,7 @@ By cloning our repository, you make sure to find all the files necessary and you
 
 Use this command to access the manual : 
 ```bash
-./man_3_printf
+man ./man_3_printf
 ```
 <br>
 
@@ -70,7 +70,7 @@ Basic usage with one specifier (`%c`) as an example:
 int main(void)
 {
     _printf("The first letter of my lastname is %c", 'H');
-    _printf('\n');
+    _printf("\n");
 
     return (0);
 }
@@ -89,7 +89,7 @@ Combined usage with the `%s`and `%d` specifiers :
 int main(void)
 {
     _printf("My name is %s and I am %d years old.", "John", 40);
-    _printf('\n');
+    _printf("\n");
 
     return (0);
 }
@@ -111,4 +111,8 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 ## Authors 
 
-Cédric Tobie, Douglas Dachicourt, Ibrahim Hassan Ali from #C23 cohort.
+[Cédric Tobie](https://github.com/HolbieWan) <br>
+[Douglas Dachicourt](https://github.com/Douglas-Dachicourt) <br>
+[Ibrahim Hassan Ali](https://github.com/Ibrux11) <br>
+<br>
+*#C23* cohort from Thonon-les-Bains.
