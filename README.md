@@ -52,6 +52,13 @@ man ./man_3_printf
 ```
 <br>
 
+## Flowchart of our _printf function
+<br>
+
+![alt text](<./Test/Printf flowchart-1.png>)
+
+<br>
+
 ## Usage
 
 This project implements basic functionalities for our `_printf` function, including handling the four following format specifiers :
